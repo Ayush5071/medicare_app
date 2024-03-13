@@ -1,0 +1,47 @@
+.container{
+    background-image:url(bgdoc.jpeg);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 300px;
+
+}
+.loading{
+    background-color: aliceblue;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+animation-name: anima;
+animation-duration:3s;
+animation-timing-function: ease;
+}
+@keyframes anima{
+    from{left:0px;
+        width: 0px;
+        background-color: green;
+    }
+    to{
+        left:400px;
+        width: 400px;
+        background-color: green;
+    }
+
+}
+.loading1{
+    height: 20px;
+    width:400px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.text{
+    background-color: aliceblue;
+    height: 100px;
+    width: 400px;
+    border-radius: 20px;
+    border: 2px solid black;
+
+}
+.l{
+    display: flex;
+    justify-content: center;
+}

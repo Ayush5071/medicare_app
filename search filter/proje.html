@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project search filter</title>
+  <link rel="stylesheet" href="./pro.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,409;1,409&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./logomc.png">
+        </div>
+        <div class="blank">
+
+        </div>
+    </nav>
+      <section>
+    <form >
+        <i class="fas fa-search"></i>
+        <input type="text" name="" id="myinput" placeholder="Search" onkeyup="searchfun()">
+    </form>
+    <div class="doctor list" id="doctorlist">
+    <div class="detail">   
+    <div class="details">
+
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Shreyansh</h2>
+        <h2>Pandey</h2>
+        <h2 class="speciality" style="padding-left: 50px;">Cardiologist(MBBS,MD)</h2>
+       <div class="button"> <button  onclick="openHtml()" class="butt"type="button" >book appoinment</button></div>
+    </div>
+    </div>
+    <div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Vivek </h2>
+        <h2>Singh</h2>
+        <h2 class="speciality"style="padding-left: 80px;">Dermatologist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div>
+    <div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Ayush </h2>
+        <h2>Tiwari</h2>
+        <h2 class="speciality" style="padding-left: 100px;">Orthologist(MBBS,MD)</h2>
+       <div class="button";> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div>
+    <div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Vishwa</h2>
+        <h2>Sundararajan</h2>
+        <h2 class="speciality"style="padding-left: 50px;">Gynecologist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Ayush</h2>
+        <h2>Yadav</h2>
+        <h2 class="speciality" style="padding-left: 120px;">Allergist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Yagesh</h2>
+        <h2>k.jha</h2>
+        <h2 class="speciality" style="padding-left: 50px;">Gastroenterologist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Himanshu </h2>
+        <h2>Kumar</h2>
+        <h2  class="speciality" style="padding-left: 50px;">Cardiologist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Shikher</h2>
+        <h2>Yadav</h2>
+        <h2  class="speciality"style="padding-left: 50px;">Pediatrician(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Dushyant</h2>
+        <h2>Verma</h2>
+        <h2 class="speciality"  style="padding-left: 50px;">Gastroenterologist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Sehba</h2>
+        <h2>Fatma</h2>
+        <h2  class="speciality" style="padding-left: 50px;">Physician(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()" class="butt"type="button">book appoinment</button></div>
+    </div><div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+    
+        <h2 class="name">Dr.Vanessa</h2>
+        <h2>Shrie</h2>
+        <h2 class="speciality" style="padding-left: 50px;">Physician(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()" class="butt"type="button">book appoinment</button></div>
+      </div> <div class="details">
+        <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+        
+        <h2 class="name">Dr.Shreya</h2>
+        <h2>Dubey</h2>
+        <h2  class="speciality" style="padding-left: 50px;">Gynecologist(MBBS,MD)</h2>
+       <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+    </div>
+</div><div class="details">
+    <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+
+    <h2 class="name">Dr.Shlok</h2>
+    <h2>Agrahari</h2>
+    <h2  class="speciality" style="padding-left: 50px;">Orthologist(MBBS,MD)</h2>
+   <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+</div><div class="details">
+    <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+
+    <h2 class="name">Dr.Rachit</h2>
+    <h2>Saini</h2>
+    <h2 class="speciality"  style="padding-left: 50px;">Allergist(MBBS,MD)</h2>
+   <div class="button"> <button onclick="openHtml()" class="butt"type="button">book appoinment</button></div>
+</div><div class="details">
+    <img  class="doc1" src="https://th.bing.com/th/id/OIP.ZeBtPaxgzltLFvZAhzpkCgHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+
+    <h2 class="name">Dr.Atul</h2>
+    <h2>Pathak</h2>
+    <h2  class="speciality" style="padding-left: 50px;">Pediatrician(MBBS,MD)</h2>
+   <div class="button"> <button onclick="openHtml()"  class="butt"type="button">book appoinment</button></div>
+</div></section>
+<script >
+    const searchfun= () => {
+    const searchbox=document.getElementById("myinput").value.toUpperCase();
+    const storedoctors=document.getElementById("doctorlist")
+    const specialit=document.querySelectorAll(".details")
+    const pname=document.querySelectorAll(".speciality")
+
+    for(var i=0;i<pname.length;i++)
+    {
+        let match=specialit[i].querySelectorAll('.speciality')[0];
+    if(match){
+        let textvalue=match.textContent || match.innerHTML
+        if(textvalue.toUpperCase().indexOf(searchbox)> -1)
+        {specialit[i].style.display="";
+    }
+    else{
+        specialit[i].style.display="none";
+    }
+    }
+
+    }   }
+    function openHtml() {
+  // Change 'path/to/your/file.html' to the actual path of your HTML file
+  window.location.href = './pro2.html';
+}
+
+</script>
+</body>
+</html>
