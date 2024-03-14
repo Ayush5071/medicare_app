@@ -60,6 +60,8 @@ nav{
     border-radius: 10%;
     padding:27px;
     min-width:200px;
+	animation-name: example;
+    animation-duration: 1s;
 }
 #box2{
     height: 100%;
@@ -73,6 +75,11 @@ nav{
     font-family: 'Oswald';
     color: aliceblue;
     font-size: 20px;
+	 animation-name: example;
+    animation-duration: 1s;/*done by shre*/
+    animation-delay: 3sec;
+    animation-timing-function: linear;
+    
 }
 #img{
     height: 100%;
@@ -102,6 +109,9 @@ nav{
     color: aliceblue;
     font-family: "Oswald", sans-serif;
     font-size:25px;
+	font-size: 25px;
+    animation-name: bigbox;
+    animation-duration: 2s;
 }
 .problems:hover{
     background-color: rgb(143, 52, 52);
@@ -254,6 +264,8 @@ h1{
     margin-left: 20px;
     color: #fff;
     font-family: "Madimi One", sans-serif;
+	 animation-name: blur;
+    animation-duration: 2s;
 }
 .content{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -311,4 +323,18 @@ h1{
     0% { transform: translate(0, 0px); }
 	50% { transform: translate(0, 15px); }
 	100% { transform: translate(0, -0px); } 
+}@keyframes example{
+    0%{translate: 0 -10px;opacity: 0;}
+   /*done by shre*/
+    100%{translate:0 0px;opacity: 1;}
+
+}
+@keyframes bigbox{
+    0%{translate: -40vw;opacity: 0.4;;
+    }/*done by shre*/
+    100%{width:fit-content ;opacity: 1;}
+}
+@keyframes blur{
+    0%{opacity: 0;}
+    100%{opacity: 100%;}/*done by shre*/
 }
