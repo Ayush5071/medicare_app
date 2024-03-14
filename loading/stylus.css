@@ -6,7 +6,7 @@
 section{
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: #ffc1ee;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,11 +25,12 @@ section{
     width: 25px;
     background-color: blue;
     border-radius: 50%;
+    border: 2px solid ;
 }
 .upper{
     left: 0;
     top: -25px;
-    background-color: #2da2ff;
+    background-color: red;
     animation: upper 1s infinite;
 }
 @keyframes upper {
@@ -41,7 +42,7 @@ section{
 .lower{
     bottom: -25px;
     right: 0;
-    background-color: greenyellow;
+    background-color: red;
     animation: lower 1s infinite;
 }
 @keyframes lower {
@@ -55,7 +56,7 @@ section{
 .right{
     bottom: 0;
     right : -25px;
-    background-color: aqua;
+    background-color: grey;
     animation: right 1s infinite;
 }
 @keyframes right {
@@ -70,7 +71,7 @@ section{
 
     bottom: 0;
     left: -25px;
-    background-color: blueviolet;
+    background-color: grey;
     animation: left 1s infinite;
    
 }
