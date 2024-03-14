@@ -5,11 +5,13 @@ const passport = require('passport');
 const router = express.Router();
 const userModel = require("./users");
 const localStrategy = require("passport-local")
-const doctorModel = require("./doctor");
+// const doctorModel = require("./doctor");
+const aptModel =require("./appointment")
+const upload = require('./multer');
 
 // Passport local strategy for users
 passport.use(new localStrategy(userModel.authenticate()));
-passport.use('doctor-local', new localStrategy(doctorModel.authenticate()));
+// passport.use('doctor-local', new localStrategy(doctorModel.authenticate()));
 
 // Passport local strategy for sellers
 // passport.use('doctor-local', new localStrategy({
@@ -29,16 +31,19 @@ router.get('/',function(req,res){
     res.render('index');
 });
 
-router.get('/profile',function(req,res){
-    res.render('profile');
+router.get('/profile',isLoggedIn,async function(req,res){
+    const user = await userModel.findOne({username:req.session.passport.user})
+    console.log(user)
+
+    res.render('profile',{user});
 });
 
-router.get('/blogin',function(req,res){
-    res.render('blogin');
+router.get('/login',function(req,res){
+    res.render('login');
 });
 
-router.get('/bsignup',function(req,res){
-    res.render('bsignup');
+router.get('/signup',function(req,res){
+    res.render('signup');
 });
 
 router.post('/register',function(req,res){
@@ -46,7 +51,9 @@ router.post('/register',function(req,res){
         username: req.body.username,
         number: req.body.number,
         email: req.body.email,
-        name: req.body.name
+        name: req.body.name,
+        dob:req.body.dob,
+        gender:req.body.gender
     });
     userModel.register(userdata, req.body.password)
     .then(function(registereduser){
@@ -63,46 +70,68 @@ router.post('/login',passport.authenticate("local",{
 }),function(req,res){
     
 });
-
+router.get("/doctor",(req,res)=>{
+    res.render("doctor");
+})
 router.get("/logout",function(req,res,next){
     req.logout(function(err){
         if(err) return next(err);
         res.redirect("/");
     });
 });
+router.get("/appointment",(req,res)=>{
+    res.render("appointment")
+})
+router.get("/bookbed",(req,res)=>{
+    res.render("bookbed")
+})
 
-// Routes for doctor authentication
-router.get('/slogin', (req, res) => {
-    res.render('slogin');
-});
+router.get("/ambulance",(req,res)=>{
+    res.render("ambulance")
+})
+router.get("/treatment",(req,res)=>{
+    res.render("treatment")
+})
 
-router.post('/slogin', passport.authenticate('doctor-local', {
-    successRedirect: '/profile',
-    failureRedirect: '/slogin',
-}));
+router.post("/pic",isLoggedIn,upload.single("profileImage"),async (req,res)=>{
+    const user = await userModel.findOne({username:req.session.passport.user})
+    user.profileImage = req.file.filename;
+    await user.save();
+    res.redirect('/profile')
+})
 
-router.get('/ssignup', (req, res) => {
-    res.render('ssignup');
-});
+// // Routes for doctor authentication
+// router.get('/slogin', (req, res) => {
+//     res.render('slogin');
+// });
 
-router.post('/sregister',function(req,res){
-    var sellerdata = new doctorModel({
-        username: req.body.username,
-        email: req.body.email,
-        name: req.body.name
-    });
-    doctorModel.register(sellerdata, req.body.password)
-    .then(function(registeredseller){
-    passport.authenticate("doctor-local")(req,res,function(){
-        res.redirect('/doctor-profile');
-    });
-});
+// router.post('/slogin', passport.authenticate('doctor-local', {
+//     successRedirect: '/profile',
+//     failureRedirect: '/slogin',
+// }));
 
-});
+// router.get('/ssignup', (req, res) => {
+//     res.render('ssignup');
+// });
 
-router.get('/profile', (req, res) => {
-    res.render('profile');
-});
+// router.post('/sregister',function(req,res){
+//     var sellerdata = new doctorModel({
+//         username: req.body.username,
+//         email: req.body.email,
+//         name: req.body.name
+//     });
+//     doctorModel.register(sellerdata, req.body.password)
+//     .then(function(registeredseller){
+//     passport.authenticate("doctor-local")(req,res,function(){
+//         res.redirect('/doctor-profile');
+//     });
+// });
+
+// });
+
+// router.get('/profile', (req, res) => {
+//     res.render('profile');
+// });
 
 router.get('/logout', (req, res) => {
     req.logout();

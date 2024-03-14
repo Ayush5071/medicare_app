@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session");
 const passport = require('passport');
-const doctor = require('./routes/doctor'); // Require the seller model
+// const doctor = require('./routes/doctor');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const app = express();
@@ -31,14 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 passport.serializeUser(usersRouter.serializeUser());
 passport.deserializeUser(usersRouter.deserializeUser());
 
-//Serializing and deserializing seller
-passport.serializeUser (doctor.serializeUser());
-passport.deserializeUser (doctor.deserializeUser());
-
 // Routes setup
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/doctor', doctor); // Include seller routes
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

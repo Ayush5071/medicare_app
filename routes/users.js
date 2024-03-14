@@ -7,11 +7,13 @@ const userSchema = mongoose.Schema({
   email: String,
   password: String,
   profileImage: String,
+  gender:String,
   number: Number,
-  purchases: {
-    type:Array,
-    default:[]
-  }
+  dob:Date,
+  appointments:[{
+    type:mongoose.mongoose.Schema.Types.ObjectId,
+    ref:'aptModel'
+  }],
 });
 userSchema.plugin(plm) //this is also required 
 module.exports = mongoose.model("user",userSchema)
