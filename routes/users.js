@@ -10,6 +10,19 @@ const userSchema = mongoose.Schema({
   gender:String,
   number: Number,
   dob:Date,
+  appointment:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'aptModel'
+}],
+  bed:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'bedModel'
+}],
+  ambulance:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'ambulance'
+}],
+
 });
 userSchema.plugin(plm) //this is also required 
 module.exports = mongoose.model("user",userSchema)

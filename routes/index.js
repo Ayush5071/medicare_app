@@ -8,6 +8,8 @@ const localStrategy = require("passport-local")
 // const doctorModel = require("./doctor");
 const aptModel =require("./appointment")
 const upload = require('./multer');
+const ambulanceModel = require("./ambulance")
+const bedModel = require("./bed")
 
 // Passport local strategy for users
 passport.use(new localStrategy(userModel.authenticate()));
@@ -71,7 +73,9 @@ router.get("/appointment",isLoggedIn,(req,res)=>{
 router.get("/bookbed",isLoggedIn,(req,res)=>{
     res.render("bookbed")
 })
-
+router.get("/bot",(req,res)=>{
+    res.render("chatbot")
+})
 router.get("/ambulance",isLoggedIn,(req,res)=>{
     res.render("ambulance")
 })
@@ -99,12 +103,43 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-router.post("/appointment",async(req,res)=>{
+router.post("/appointment",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username:req.session.passport.user})
+    console.log(user)
     const appointment = await aptModel.create({
         name:req.body.name,
         email:req.body.email,
         phone:req.body.phone,
     })
+    user.appointment.push(appointment._id);
+    await user.save()
+    console.log(user)
+    res.redirect("/cnfrm")
+})
+module.exports = router;
+router.post("/book-bed",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username:req.session.passport.user})
+    console.log(user)
+    const bed = await bedModel.create({
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,
+    })
+    user.bed.push(bed._id);
+    await user.save()
+    res.redirect("/cnfrm")
+})
+router.post("/book-ambulance",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username:req.session.passport.user})
+    console.log(user)
+    const ambulance = await ambulanceModel.create({
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,
+        address:req.body.address
+    })
+    user.ambulance.push(ambulance._id);
+    await user.save()
     res.redirect("/cnfrm")
 })
 module.exports = router;
