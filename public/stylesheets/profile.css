@@ -338,3 +338,25 @@ h1{
     0%{opacity: 0;}
     100%{opacity: 100%;}/*done by shre*/
 }
+.yo{
+    display:flex;
+    position: relative;;
+    gap:20px;
+    left: 800px;
+    translate: 0 -30px;
+}
+.y{
+    height: 30px;
+    width: 125px;
+    border-radius:10px;
+    color:grey;
+    text-decoration: none;
+
+}
+.y:hover{
+    color: brown;
+}
+#change{
+    translate: -170px ;
+    border-radius: 50%;
+}
