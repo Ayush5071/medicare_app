@@ -1,14 +1,14 @@
 
 const mongoose = require('mongoose');
-const plm = require('passport-local-mongoose');
+// const plm = require('passport-local-mongoose');
 
 const aptSchema = new mongoose.Schema({
-  username: String,
+  name: String,
   email: String,
-  password: String,
+  phone: Number,
+  date: { type: Date, default: Date.now }
 });
 
-aptSchema.plugin(plm);
 
 module.exports = mongoose.model('aptModel', aptSchema);
 

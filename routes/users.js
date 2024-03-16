@@ -10,10 +10,6 @@ const userSchema = mongoose.Schema({
   gender:String,
   number: Number,
   dob:Date,
-  appointments:[{
-    type:mongoose.mongoose.Schema.Types.ObjectId,
-    ref:'aptModel'
-  }],
 });
 userSchema.plugin(plm) //this is also required 
 module.exports = mongoose.model("user",userSchema)

@@ -11,20 +11,6 @@ const upload = require('./multer');
 
 // Passport local strategy for users
 passport.use(new localStrategy(userModel.authenticate()));
-// passport.use('doctor-local', new localStrategy(doctorModel.authenticate()));
-
-// Passport local strategy for sellers
-// passport.use('doctor-local', new localStrategy({
-//     usernameField: 'email',
-//     passwordField: 'password',
-//   }, (email, password, done) => {
-//     doctorModel.findOne({ email: email }, (err, doctor) => {
-//       if (err) { return done(err); }
-//       if (!doctor) { return done(null, false, { message: 'Incorrect email.' }); }
-//       if (doctor.password !== password) { return done(null, false, { message: 'Incorrect password.' }); }
-//       return done(null, doctor);
-//     });
-//   }));
 
 // Routes for user authentication
 router.get('/',function(req,res){
@@ -70,7 +56,7 @@ router.post('/login',passport.authenticate("local",{
 }),function(req,res){
     
 });
-router.get("/doctor",(req,res)=>{
+router.get("/doctor",isLoggedIn,(req,res)=>{
     res.render("doctor");
 })
 router.get("/logout",function(req,res,next){
@@ -79,14 +65,14 @@ router.get("/logout",function(req,res,next){
         res.redirect("/");
     });
 });
-router.get("/appointment",(req,res)=>{
+router.get("/appointment",isLoggedIn,(req,res)=>{
     res.render("appointment")
 })
-router.get("/bookbed",(req,res)=>{
+router.get("/bookbed",isLoggedIn,(req,res)=>{
     res.render("bookbed")
 })
 
-router.get("/ambulance",(req,res)=>{
+router.get("/ambulance",isLoggedIn,(req,res)=>{
     res.render("ambulance")
 })
 router.get("/treatment",(req,res)=>{
@@ -99,45 +85,13 @@ router.post("/pic",isLoggedIn,upload.single("profileImage"),async (req,res)=>{
     await user.save();
     res.redirect('/profile')
 })
-
-// // Routes for doctor authentication
-// router.get('/slogin', (req, res) => {
-//     res.render('slogin');
-// });
-
-// router.post('/slogin', passport.authenticate('doctor-local', {
-//     successRedirect: '/profile',
-//     failureRedirect: '/slogin',
-// }));
-
-// router.get('/ssignup', (req, res) => {
-//     res.render('ssignup');
-// });
-
-// router.post('/sregister',function(req,res){
-//     var sellerdata = new doctorModel({
-//         username: req.body.username,
-//         email: req.body.email,
-//         name: req.body.name
-//     });
-//     doctorModel.register(sellerdata, req.body.password)
-//     .then(function(registeredseller){
-//     passport.authenticate("doctor-local")(req,res,function(){
-//         res.redirect('/doctor-profile');
-//     });
-// });
-
-// });
-
-// router.get('/profile', (req, res) => {
-//     res.render('profile');
-// });
-
+router.get("/cnfrm",(req,res)=>{
+    res.render("conformation")
+})
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 });
-
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
@@ -145,4 +99,12 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
+router.post("/appointment",async(req,res)=>{
+    const appointment = await aptModel.create({
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,
+    })
+    res.redirect("/cnfrm")
+})
 module.exports = router;
