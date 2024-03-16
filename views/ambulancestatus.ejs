@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Oswald:wght@200..700&family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+        .box{
+            display: flex;
+            flex-direction: column;
+            border:2px solid pink;
+            width: fit-content;
+           border-radius: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: pink;
+            font-family: "Oswald", sans-serif;
+            font-size: 30px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <% user.ambulance.forEach((e)=>{ %>
+    <div class="box">
+        <a href="#">Your Ambulance is Booked</a>
+        <a href="#">NAME :<%= e.name %></a>
+        <a href="#">ADDRESS :<%= e.address %></a>
+    </div>
+    <% }) %>
+
+</body>
+</html>

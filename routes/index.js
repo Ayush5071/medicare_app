@@ -102,6 +102,19 @@ function isLoggedIn(req, res, next) {
     }
     res.redirect('/');
 }
+router.get("/s-ambulance",isLoggedIn,async (req,res)=>{
+    const user = await userModel.findOne({username : req.session.passport.user}).populate("ambulance")
+
+    res.render("ambulancestatus",{user})
+})
+router.get("/s-bed",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username : req.session.passport.user}).populate("bed")
+    res.render("bedstatus",{user})
+})
+router.get("/s-appointment",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username : req.session.passport.user}).populate("appointment")
+    res.render("appointmentstatus",{user})
+})
 
 router.post("/appointment",isLoggedIn,async(req,res)=>{
     const user = await userModel.findOne({username:req.session.passport.user})
