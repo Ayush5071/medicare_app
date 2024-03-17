@@ -15,7 +15,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    
+    <style>
+        .containergraph{
+            display: flex;
+        }
+      </style>
 </head>
 <body>
   <form id="uploadform" hidden action="/pic" method="post" enctype="multipart/form-data">
@@ -133,6 +137,106 @@
             <a href="/bookbed" class="btn" id="btn1">Book Hospital Bed</a>
         </div>
     </div>
+    <div class="containergraph">  
+        <div id="bp_chart" style="width: 900px; height: 500px"></div>
+        <div id="sugar_chart" style="width: 900px; height: 500px"></div>
+    </div>
     <script src="/javascripts/profile.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawCharts);
+  
+      function drawCharts() {
+        // Blood Pressure Chart
+        var bpData = google.visualization.arrayToDataTable([
+          ['Date', 'Normal B.P.', 'Your B.P.'],
+          ['1', 130, 124],
+      ['2', 130, 135],
+      ['3', 130, 140],
+      ['4', 130, 140],
+      ['5', 130, 145],
+      ['6', 130, 150],
+      ['7', 130, 144],
+      ['8', 130, 160],
+      ['9', 130, 165],
+      ['10', 130, 150],
+      ['11', 130, 148],
+      ['12', 130, 149],
+      ['13', 130, 140],
+      ['14', 130, 138],
+      ['15', 130, 142],
+      ['16', 130, 141],
+      ['17', 130, 148],
+      ['18', 130, 155],
+      ['19', 130, 154],
+      ['20', 130, 152],
+      ['21', 130, 145],
+      ['22', 130, 140],
+      ['23', 130, 138],
+      ['24', 130, 137],
+      ['25', 130, 130],
+      ['26', 130, 132],
+      ['27', 130, 134],
+      ['28', 130, 136],
+      ['29', 130, 139],
+      ['30', 130, 143]
+        ]);
+  
+        var bpOptions = {
+          title: 'Blood Pressure',
+          curveType: 'function',
+          legend: { position: 'top' }
+        };
+  
+        var bpChart = new google.visualization.LineChart(document.getElementById('bp_chart'));
+        bpChart.draw(bpData, bpOptions);
+  
+        // Sugar Level Chart
+        var sugarData = google.visualization.arrayToDataTable([
+          ['Date', 'Normal Sugar Level', 'Your Sugar Level'],
+          ['1', 120, 115],
+      ['2', 120, 123],
+      ['3', 120, 122],
+      ['4', 120, 125],
+      ['5', 120, 120],
+      ['6', 120, 118],
+      ['7', 120, 125],
+      ['8', 120, 125],
+      ['9', 120, 123],
+      ['10', 120, 126],
+      ['11', 120, 128],
+      ['12', 120, 122],
+      ['13', 120, 123],
+      ['14', 120, 117],
+      ['15', 120, 116],
+      ['16', 120, 118],
+      ['17', 120, 120],
+      ['18', 120, 122],
+      ['19', 120, 120],
+      ['20', 120, 123],
+      ['21', 120, 124],
+      ['22', 120, 128],
+      ['23', 120, 127],
+      ['24', 120, 126],
+      ['25', 120, 127],
+      ['26', 120, 128],
+      ['27', 120, 127],
+      ['28', 120, 128],
+      ['29', 120, 125],
+      ['30', 120, 126]
+        ]);
+  
+        var sugarOptions = {
+          title: 'Sugar Level',
+          curveType: 'function',
+          legend: { position: 'top' }
+        };
+  
+        var sugarChart = new google.visualization.LineChart(document.getElementById('sugar_chart'));
+        sugarChart.draw(sugarData, sugarOptions);
+      }
+    </script>
+    
 </body>
 </html>
