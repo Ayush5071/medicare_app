@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathology</title>
+    <link rel="stylesheet" href="appointment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image_assets/MC.jpeg">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+        body{
+        background-color: rgb(238, 99, 99);
+    }    
+    </style>
+    
+</head>
+<body>
+
+<div class="container">
+    <h2>Lab Test</h2>
+    <form action="/pathalogy" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="test">Test Name</label>
+            <input type="text" id="test" name="test" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Test:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Date of Test:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>

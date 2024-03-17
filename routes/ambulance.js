@@ -1,13 +1,12 @@
-
 const mongoose = require('mongoose');
-// const plm = require('passport-local-mongoose');
 
 const ambulanceSchema = new mongoose.Schema({
   name: String,
   email: String,
   phone: Number,
-  address:String
+  date: { type: Date, default: Date.now }
 });
+
 
 
 module.exports = mongoose.model('ambulance', ambulanceSchema);

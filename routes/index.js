@@ -10,6 +10,7 @@ const aptModel =require("./appointment")
 const upload = require('./multer');
 const ambulanceModel = require("./ambulance")
 const bedModel = require("./bed")
+const pathModel = require("./pathalogy")
 
 // Passport local strategy for users
 passport.use(new localStrategy(userModel.authenticate()));
@@ -110,11 +111,19 @@ router.get("/s-ambulance",isLoggedIn,async (req,res)=>{
 router.get("/s-bed",isLoggedIn,async(req,res)=>{
     const user = await userModel.findOne({username : req.session.passport.user}).populate("bed")
     res.render("bedstatus",{user})
-})
+});
 router.get("/s-appointment",isLoggedIn,async(req,res)=>{
     const user = await userModel.findOne({username : req.session.passport.user}).populate("appointment")
     res.render("appointmentstatus",{user})
-})
+});
+router.get("/pathalogy",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username : req.session.passport.user}).populate("test")
+    res.render("testreq",{user})
+});
+router.get("/pathform",isLoggedIn,async(req,res)=>{
+    const user = await userModel.findOne({username : req.session.passport.user}).populate("test")
+    res.render("pathology",{user})
+});
 
 router.post("/appointment",isLoggedIn,async(req,res)=>{
     const user = await userModel.findOne({username:req.session.passport.user})
@@ -154,5 +163,20 @@ router.post("/book-ambulance",isLoggedIn,async(req,res)=>{
     user.ambulance.push(ambulance._id);
     await user.save()
     res.redirect("/cnfrm")
+})
+router.post("/pathalogy",isLoggedIn,async (req,res)=>{
+    const user = await userModel.findOne({username:req.session.passport.user})
+    // console.log(user)
+    const pathalogy = await pathModel.create({
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,
+        date:req.body.date,
+        test:req.body.test
+    })
+    user.test.push(pathalogy._id);
+    await user.save()
+    res.redirect("/cnfrm")
+
 })
 module.exports = router;

@@ -22,6 +22,10 @@ const userSchema = mongoose.Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:'ambulance'
 }],
+  test:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'pathalogy'
+}],
 
 });
 userSchema.plugin(plm) //this is also required 
