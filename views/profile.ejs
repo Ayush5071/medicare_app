@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
+ <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="icon" type="image/png" href="/public/images/image_assets/MC.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -138,8 +139,8 @@
         </div>
     </div>
     <div class="containergraph">  
-        <div id="bp_chart" style="width: 900px; height: 500px"></div>
-        <div id="sugar_chart" style="width: 900px; height: 500px"></div>
+        <div id="bp_chart" style="width: 900px; height: 500px" data-aos="slide-right"></div>
+        <div id="sugar_chart" style="width: 900px; height: 500px" data-aos="slide-left"></div>
     </div>
     <script src="/javascripts/profile.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -237,6 +238,15 @@
         sugarChart.draw(sugarData, sugarOptions);
       }
     </script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+     <script>
+       AOS.init({
+         offset: 200,
+         duration: 800,
+ 
+       });
+     </script>
+ 
     
 </body>
 </html>
