@@ -14,6 +14,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-image: url('/images/image_assets/Bg2.jpg');
     color: aliceblue;
+    box-shadow: 16px 16px 50px 2px black;
     
 }
 .form-group {
