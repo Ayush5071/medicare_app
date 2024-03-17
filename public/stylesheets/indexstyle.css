@@ -38,7 +38,7 @@ a {
 }
 
 ::-webkit-scrollbar {
-    width: .375rem;
+    width: .5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -171,14 +171,14 @@ p{
 .header_wrapper .nav-item .nav-link{
     font-size: 1.125rem;
     font-weight: 400;
-    color:var(--primary-text);
+	    color:rgb(81, 82, 82);
     display:inline-block;
     font-family: var(--secondary-font);
 }
 .header_wrapper .nav-item .nav-link:hover,
 .header_wrapper .nav-item .nav-link:focus,
 .header_wrapper .nav-item .nav-link.active{
-    color:var(--secondary-text);
+    color:pink;
 }
 .navbar.header-scrolled{
     position:fixed;
@@ -336,6 +336,8 @@ p{
     background:rgba(85, 84, 84, 0.5);
     cursor:cell;
     border-color:transparent;
+	animation: floating 1s ease-in-out infinite
+	scale: 1.2;
 }
 .services_wrapper .card h4,
 .services_wrapper .card p{
@@ -401,7 +403,7 @@ p{
 }
 .footer_wrapper .link-widget li a:hover{
     margin-left:.625rem;
-    color:var(--secondary-text);
+    color:rgb(51, 248, 248);
 }
 .footer_wrapper .social-network a{
     width:2.1875rem;
