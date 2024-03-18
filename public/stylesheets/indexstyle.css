@@ -177,7 +177,7 @@ p{
 }
 .header_wrapper .nav-item .nav-link:hover,
 .header_wrapper .nav-item .nav-link:focus,
-.header_wrapper .nav-item .nav-link.active{
+.header_wrapper .nav-item .nav-link:active{
     color:pink;
 }
 .navbar.header-scrolled{
