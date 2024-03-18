@@ -116,7 +116,7 @@ router.get("/s-appointment",isLoggedIn,async(req,res)=>{
     const user = await userModel.findOne({username : req.session.passport.user}).populate("appointment")
     res.render("appointmentstatus",{user})
 });
-router.get("/pathalogy",isLoggedIn,async(req,res)=>{
+router.get("/pathology",isLoggedIn,async(req,res)=>{
     const user = await userModel.findOne({username : req.session.passport.user}).populate("test")
     res.render("testreq",{user})
 });
