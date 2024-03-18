@@ -333,7 +333,7 @@ p{
 }
 .services_wrapper .card:hover{
     background:rgba(85, 84, 84, 0.5);
-    cursor:cell;
+    cursor:pointer;
     border-color:transparent;
 	animation: floating 1s ease-in-out infinite
 	scale: 1.2;
