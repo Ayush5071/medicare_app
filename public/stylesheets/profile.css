@@ -344,6 +344,10 @@ h1{
     gap:20px;
     left: 800px;
     translate: 0 -30px;
+     font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:800;
+    font-style: normal;
 }
 .y{
     height: 30px;
